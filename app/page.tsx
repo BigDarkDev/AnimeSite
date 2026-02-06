@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { getRecentEpisodes, getTrendingAnime, searchAnime, Anime, RecentEpisode } from '@/lib/anilist';
 import AnimeCard from '@/components/AnimeCard';
 import TrendingCard from '@/components/TrendingCard';
-import { AdPlaceholder } from '@/components/AdSense';
+import AdSense, { AdPlaceholder } from '@/components/AdSense';
 
 export default function HomePage() {
   const [recentEpisodes, setRecentEpisodes] = useState<RecentEpisode[]>([]);
@@ -180,7 +180,7 @@ export default function HomePage() {
 
               {/* Ad Space 1 - Below Trending */}
               <div className="rounded-lg overflow-hidden">
-                <AdPlaceholder height="250px" label="AdSense Ad - Sidebar" />
+                <AdSense adSlot="6304608648" />
                 {/* 
                   Replace AdPlaceholder with:
                   <AdSense adSlot="YOUR_AD_SLOT_SIDEBAR" />
@@ -219,7 +219,7 @@ export default function HomePage() {
 
       {/* Ad Space 2 - Bottom of Page */}
       <div className="container mx-auto px-4 pb-8">
-        <AdPlaceholder height="250px" label="AdSense Ad - Bottom Page" />
+        <AdSense adSlot="6304608648"  />
         {/* 
           Replace AdPlaceholder with:
           <AdSense adSlot="YOUR_AD_SLOT_BOTTOM" />

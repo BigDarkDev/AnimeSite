@@ -2,7 +2,7 @@
 
 import { useParams, useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { AdPlaceholder } from '@/components/AdSense';
+import AdSense, { AdPlaceholder } from '@/components/AdSense';
 
 interface Character {
   id: number;
@@ -363,7 +363,7 @@ export default function AnimeDetailsPage() {
               </div>
 
               {/* Ad Space 1 */}
-              <AdPlaceholder height="250px" label="AdSense - Sidebar" />
+              <AdSense adSlot="6304608648" />
             </div>
           </div>
 
@@ -516,7 +516,7 @@ export default function AnimeDetailsPage() {
 
       {/* Ad Space 2 - Bottom */}
       <div className="container mx-auto px-4 pb-8">
-        <AdPlaceholder height="250px" label="AdSense - Bottom" />
+        <AdSense adSlot="6304608648" />
       </div>
 
       {/* Footer */}
