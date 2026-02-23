@@ -1,5 +1,6 @@
-export async function GET({ url }: { url: URL }) {
-  const title = url?.searchParams?.get('title') ?? 'Unknown Anime';
+export async function GET({ request }: { request: Request }) {
+  const url = new URL(request.url);
+  const title = url.searchParams.get('title') ?? 'Unknown Anime';
 
   const AMP_HTML = `<!doctype html>
   <html amp lang=\"en\">

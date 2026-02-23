@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-export async function GET() {
+export async function GET({ request }: { request: Request }) {
   const AMP_HTML = `<!doctype html>
 <html amp lang="en">
   <head>
