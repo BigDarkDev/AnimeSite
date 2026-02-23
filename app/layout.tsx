@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,17 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google AdSense Verification Meta Tag */}
-        <meta name="google-adsense-account" content="ca-pub-3463527483851601" />
+        {/* AdSense verification tag removed; ads are loaded via AdUnitRaw ad units */}
       </head>
       <body className={inter.className}>
-        {/* Google AdSense Script */}
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3463527483851601"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        {/* Ad scripts are injected by AdUnitRaw instances where ads are placed */}
         {children}
       </body>
     </html>
