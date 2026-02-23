@@ -1,6 +1,6 @@
-import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
-export async function GET({ request }: { request: Request }) {
+export async function GET(request: NextRequest): Promise<Response> {
   const AMP_HTML = `<!doctype html>
 <html amp lang="en">
   <head>

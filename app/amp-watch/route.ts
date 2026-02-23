@@ -1,4 +1,5 @@
-export async function GET({ request }: { request: Request }) {
+import type { NextRequest } from 'next/server';
+export async function GET(request: NextRequest): Promise<Response> {
   const url = new URL(request.url);
   const title = url.searchParams.get('title') ?? 'Unknown Anime';
 

@@ -1,5 +1,7 @@
-export async function GET({ params }: { params: { id: string } }) {
-  const id = params.id;
+import type { NextRequest } from 'next/server';
+
+export async function GET(request: NextRequest, context: { params: Promise<{ id: string }> }): Promise<Response> {
+  const { id } = await context.params;
   const query = `
     query ($id: Int) {
       Media(id: $id, type: ANIME) {
