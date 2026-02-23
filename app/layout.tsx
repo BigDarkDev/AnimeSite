@@ -6,8 +6,8 @@ import Script from 'next/script';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'AnimeStream - Watch Anime Online',
-  description: 'Stream your favorite anime online for free',
+  title: 'AnimeSensei - Watch Anime Online',
+  description: 'Stream your favorite anime online for free with AnimeSensei',
 };
 
 export default function RootLayout({

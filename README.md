@@ -1,6 +1,6 @@
-# AnimeStream - Beginner's Streaming Site Project
+# AnimeSensei - Beginner's Streaming Site Project
 
-A professional anime streaming site built with Next.js, TypeScript, and Tailwind CSS. Perfect for learning web development!
+ A professional anime streaming site built with Next.js, TypeScript, and Tailwind CSS. Perfect for learning web development!
 
 ## 🚀 Features
 

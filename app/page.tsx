@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { getRecentEpisodes, getTrendingAnime, searchAnime, Anime, RecentEpisode } from '@/lib/anilist';
 import AnimeCard from '@/components/AnimeCard';
 import TrendingCard from '@/components/TrendingCard';
-import AdSense, { AdPlaceholder } from '@/components/AdSense';
+import AdUnitRaw from '@/components/AdUnitRaw';
 
 export default function HomePage() {
   const [recentEpisodes, setRecentEpisodes] = useState<RecentEpisode[]>([]);
@@ -53,6 +53,25 @@ export default function HomePage() {
 
   const displayAnime = activeTab === 'recent' ? recentEpisodes : searchResults;
 
+  // HTML snippet for the sidebar ad unit (as provided by you)
+  const SIDEBAR_AD_SNIPPET = `
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3463527483851601"
+       crossorigin="anonymous"></script>
+  <!-- Sidebar Ad -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-3463527483851601"
+       data-ad-slot="6304608648"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  `;
+
+  // Bottom ad snippet uses the same HTML for consistency
+  const BOTTOM_AD_SNIPPET = SIDEBAR_AD_SNIPPET;
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900">
       {/* Header */}
@@ -62,8 +81,11 @@ export default function HomePage() {
             {/* Logo */}
             <div className="flex items-center justify-between">
               <h1 className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-3xl font-bold text-transparent">
-                AnimeStream
+                AnimeSensei
               </h1>
+              {process.env.NEXT_PUBLIC_SHOW_AMP_LINK === '1' && (
+                <a href="/amp-home" className="ml-4 rounded px-2 py-1 text-xs bg-purple-600 text-white">AMP</a>
+              )}
               <span className="rounded-full bg-purple-600 px-3 py-1 text-xs font-bold text-white lg:hidden">
                 HiAnime Style
               </span>
@@ -180,7 +202,7 @@ export default function HomePage() {
 
               {/* Ad Space 1 - Below Trending */}
               <div className="rounded-lg overflow-hidden">
-                <AdSense adSlot="6304608648" />
+                <AdUnitRaw html={SIDEBAR_AD_SNIPPET} />
                 {/* 
                   Replace AdPlaceholder with:
                   <AdSense adSlot="YOUR_AD_SLOT_SIDEBAR" />
@@ -219,11 +241,7 @@ export default function HomePage() {
 
       {/* Ad Space 2 - Bottom of Page */}
       <div className="container mx-auto px-4 pb-8">
-        <AdSense adSlot="6304608648"  />
-        {/* 
-          Replace AdPlaceholder with:
-          <AdSense adSlot="YOUR_AD_SLOT_BOTTOM" />
-        */}
+        <AdUnitRaw html={BOTTOM_AD_SNIPPET} />
       </div>
 
       {/* Footer */}
